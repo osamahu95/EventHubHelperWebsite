@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Text;
-using System.Threading.Tasks;
 using Azure.Messaging.EventHubs.Consumer;
 using EventHubHelperWebsite.Models;
 using Microsoft.AspNetCore.Mvc;
