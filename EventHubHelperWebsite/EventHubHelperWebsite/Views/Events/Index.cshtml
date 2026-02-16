@@ -1,7 +1,29 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Event Hub Sender";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <h2>Dump EventHub Payload</h2>
+    <textarea id="payloadInput" placeholder='{"Key": "Value"}'></textarea>
+    <button onclick="dumpData()">Send to Event Hub</button>
+    
+    <!-- Show up Payload send to eventhub-->
+    <div id="status"></div>
+</div>
+
+<script>
+    async function dumpData() {
+        debugger;
+        const payload = document.getElementById('payloadInput').value;
+        const res = await fetch('Send', {
+            method: 'POST',
+            body: {'payload': payload},
+            headers: {'Content-Type': 'application/json'}
+        });
+        const result = res.json();
+        document.getElementById('status').innerHTML = result;
+    }
+</script>
+
 
